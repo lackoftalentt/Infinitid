@@ -39,9 +39,9 @@ const fetchNews = async (
 
 export const useNews = () => {
    const { country, category } = useNewsStore();
+
    return useQuery({
       queryKey: ['news', country, category],
       queryFn: () => fetchNews(country, category),
-      staleTime: 1000 * 60 * 5,
    });
 };

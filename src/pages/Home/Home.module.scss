@@ -1,10 +1,30 @@
 .container {
-   width: 1280px;
+   width: 1450px;
    margin: 0 auto;
-   padding-top: 100px;
+   padding: 100px 0;
+   .header {
+      display: flex;
+      justify-content: space-between;
+   }
+   .title {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 36px;
+      font-weight: 700;
+      color: #56ccf2;
+   }
 
    .feed {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+   }
+   .input {
+      width: 100%;
+      border: 1px solid #56ccf2;
+      margin-bottom: 30px;
+      border-radius: 12px;
+      padding: 5px 10px;
+      outline: none;
    }
 }

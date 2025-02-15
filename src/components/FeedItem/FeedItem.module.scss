@@ -13,6 +13,9 @@ img {
    border-radius: 1em;
    background: #ece9e6;
    background: linear-gradient(to right, #ffffff, #ece9e6);
+   &Image {
+      height: 200px;
+   }
 }
 
 .cardBody {
