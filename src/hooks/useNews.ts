@@ -1,5 +1,4 @@
 import { useQuery } from '@tanstack/react-query';
-import { useNewsStore } from '../store/newsStore';
 import axios from 'axios';
 
 export interface Article {
@@ -22,14 +21,11 @@ export interface NewsResponse {
 const API_KEY = '033951f6e0f1496d9986a1da33676bdb';
 const BASE_URL = 'https://newsapi.org/v2/top-headlines';
 
-const fetchNews = async (
-   country: string,
-   category: string,
-): Promise<NewsResponse> => {
+const fetchNews = async (): Promise<NewsResponse> => {
    const { data } = await axios.get<NewsResponse>(BASE_URL, {
       params: {
-         country,
-         category,
+         country: 'us',
+         language: 'en',
          apiKey: API_KEY,
       },
    });
@@ -38,10 +34,8 @@ const fetchNews = async (
 };
 
 export const useNews = () => {
-   const { country, category } = useNewsStore();
-
    return useQuery({
-      queryKey: ['news', country, category],
-      queryFn: () => fetchNews(country, category),
+      queryKey: ['news'],
+      queryFn: () => fetchNews(),
    });
 };

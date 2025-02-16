@@ -17,7 +17,7 @@ export const Home = () => {
       data: sortedNews,
       isLoading: sortedNewsLoading,
       error: sortedNewsError,
-   } = useNewsByCategory();
+   } = useNewsByCategory(category);
 
    const isSearching = inputValue.length > 2;
    const isSorting = category !== '';
